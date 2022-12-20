@@ -29,6 +29,7 @@ mongoose.connect('mongodb://0.0.0.0:27017/myenqform')
   app.use(cors({
     origin:["http://localhost:3000","https://enq-form-frontend.onrender.com/"]
   }))
+  
   app.use('/enq',enquirySchema)
 
 app.listen(process.env.PORT||5000, () => {
