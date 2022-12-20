@@ -13,6 +13,13 @@ routes = require('./Routes/Emproute');
 //   res.sendFile(path.join(__dirname + "/client/build/index.html"));
 //   });
 //  }
+
+const corsOrigin ={
+  origin:'http://localhost:3000', //or whatever port your frontend is using
+  credentials:true,            
+  optionSuccessStatus:200
+}
+
 const enquirySchema=require('./Routes/Emproute')
 dotenv.config();
 
@@ -31,9 +38,7 @@ mongoose.connect('mongodb+srv://venkat999:venkat%40999@cluster0.4zuppce.mongodb.
       extended:false
   }))
 
-  app.use(cors({
-    origin:["http://localhost:3000","https://full-stack-form-frontent.vercel.app"]
-  }))
+  app.use(cors(corsOrigin))
   
   app.use('/enq',enquirySchema)
 
