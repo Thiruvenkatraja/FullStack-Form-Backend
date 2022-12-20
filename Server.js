@@ -7,9 +7,15 @@ const app = express();
 const PORT =process.env.PORT|| 5000;
 routes = require('./Routes/Emproute');
 
-
+if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "staging") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+  });
+ }
 const enquirySchema=require('./Routes/Emproute')
 dotenv.config();
+
 mongoose.set('strictQuery', true);
 mongoose.connect('mongodb+srv://venkat999:venkat%40999@cluster0.4zuppce.mongodb.net/myenqform')
 .then((x)=>{
