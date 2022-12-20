@@ -10,9 +10,8 @@ routes = require('./Routes/Emproute');
 
 const enquirySchema=require('./Routes/Emproute')
 dotenv.config();
-
 mongoose.set('strictQuery', true);
-mongoose.connect('mongodb://0.0.0.0:27017/myenqform')
+mongoose.connect('mongodb+srv://venkat999:venkat%40999@cluster0.4zuppce.mongodb.net/myenqform')
 .then((x)=>{
     console.log(`Connected to Mongo Database:"${x.connections[0].name}"`)
   })
