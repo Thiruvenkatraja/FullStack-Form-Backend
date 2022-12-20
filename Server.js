@@ -31,7 +31,9 @@ mongoose.connect('mongodb+srv://venkat999:venkat%40999@cluster0.4zuppce.mongodb.
       extended:false
   }))
 
-  app.use(cors())
+  app.use(cors({
+    origin:["http://localhost:3000/form",]
+  }))
   
   app.use('/enq',enquirySchema)
 
