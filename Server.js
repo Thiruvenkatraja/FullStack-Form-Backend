@@ -8,7 +8,7 @@ const PORT =process.env.PORT|| 5000;
 routes = require('./Routes/Emproute');
 
 
-const enquirySchema=require('../backend/Routes/Emproute')
+const enquirySchema=require('./Routes/Emproute')
 dotenv.config();
 
 
