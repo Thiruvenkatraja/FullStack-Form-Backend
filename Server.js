@@ -11,7 +11,7 @@ routes = require('./Routes/Emproute');
 const enquirySchema=require('./Routes/Emproute')
 dotenv.config();
 
-
+mongoose.set('strictQuery', true);
 mongoose.connect('mongodb://0.0.0.0:27017/myenqform')
 .then((x)=>{
     console.log(`Connected to Mongo Database:"${x.connections[0].name}"`)
@@ -29,6 +29,6 @@ mongoose.connect('mongodb://0.0.0.0:27017/myenqform')
   app.use(cors())
   app.use('/enq',enquirySchema)
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT||5000, () => {
   console.log(`Example app listening on port ${PORT}`)
 })
