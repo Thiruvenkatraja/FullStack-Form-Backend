@@ -5,6 +5,7 @@ const cors = require('cors');
 const dotenv=require('dotenv')
 const app = express();
 const PORT =process.env.PORT|| 5000;
+routes = require('./Routes/Emproute');
 
 
 const enquirySchema=require('../backend/Routes/Emproute')
@@ -19,6 +20,7 @@ mongoose.connect('mongodb://0.0.0.0:27017/myenqform')
     console.log("Connection Error",err)
   })
 
+  app.use('/', routes);
   app.use(bodyPraser.json())
   app.use(bodyPraser.urlencoded({
       extended:true
