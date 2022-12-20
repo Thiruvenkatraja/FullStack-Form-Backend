@@ -32,7 +32,7 @@ mongoose.connect('mongodb+srv://venkat999:venkat%40999@cluster0.4zuppce.mongodb.
   }))
 
   app.use(cors({
-    // origin:["http://localhost:3000","https://full-stack-form-frontent.vercel.app"]
+    origin:["http://localhost:3000","https://full-stack-form-frontent.vercel.app"]
   }))
   
   app.use('/enq',enquirySchema)
