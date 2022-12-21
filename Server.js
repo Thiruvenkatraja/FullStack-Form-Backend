@@ -7,16 +7,17 @@ const app = express();
 const PORT =process.env.PORT|| 5000;
 routes = require('./Routes/Emproute');
 
-// if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "staging") {
-//   app.use(express.static("client/build"));
-//   app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname + "/client/build/index.html"));
-//   });
-//  }
+if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "staging") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.header("Access-Control-Allow-Origin", "true");
+  });
+ }
 
 const corsOrigin ={
   origin:'http://localhost:3000', //or whatever port your frontend is using
-  credentials:true,            
+  credentials:true,
+  crossorigin:true,            
   optionSuccessStatus:200
 }
 
