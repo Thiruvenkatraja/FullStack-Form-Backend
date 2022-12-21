@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 let enquirySchema = new Schema({
-    candiatename: {
+    candidatename: {
         type:String
     },
     email: {
