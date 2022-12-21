@@ -2,10 +2,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 let enquirySchema = new Schema({
-    candiateFname: {
-        type:String
-    },
-    candiateLname: {
+    candiatename: {
         type:String
     },
     email: {
