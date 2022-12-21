@@ -7,12 +7,11 @@ const app = express();
 const PORT =process.env.PORT|| 5000;
 routes = require('./Routes/Emproute');
 
-if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "staging") {
-  app.use(express.static("client/build"));
-  app.get("*", (req, res) => {
-    res.header("Access-Control-Allow-Origin", "true");
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
   });
- }
 
 const corsOrigin ={
   origin:['http://localhost:3000','https://full-stack-form-frontent.vercel.app'], 
