@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "staging")
  }
 
 const corsOrigin ={
-  origin:'http://localhost:3000', //or whatever port your frontend is using
+  origin:['http://localhost:3000','https://full-stack-form-frontent.vercel.app'], 
   credentials:true,
   crossorigin:true,            
   optionSuccessStatus:200
